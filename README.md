@@ -33,7 +33,7 @@ Yes, you can style the output to your heart's content.
 <div class="sale-countdown-container">
 	<span class="sale-countdown-prefix">The sale starts in</span>
 	<span class="sale-countdown-days">6 days</span>
-	<span class="sale-countdown-delimiter"> and </span>
+	<span class="sale-countdown-delimiter">and</span>
 	<span class="sale-countdown-remainder">3 hours</span>
 	<span class="sale-countdown-suffix">. Hooray!</span>
 </div>
