@@ -21,11 +21,13 @@ Input date timezone is UTC. Output is localized.
 </script>
 ```
 
+
 Output looks something like:
 
 ```
 The sale starts in 6 days and 3 hours. Hooray!
 ```
+
 
 Yes, you can style the output to your heart's content.
 
