@@ -7,17 +7,17 @@ Input date timezone is UTC. Output is localized.
 
 ```html
 <div class="countdown-timer"
-	data-month="7"
-	data-day="4"
-	data-year="2013"
-	data-hour="17"
-	data-prefix="The sale starts in"
-	data-suffix=". Hooray!"
-	data-delimiter="and"
+  data-month="7"
+  data-day="4"
+  data-year="2013"
+  data-hour="17"
+  data-prefix="The sale starts in"
+  data-suffix=". Hooray!"
+  data-delimiter="and"
 ></div>
 
 <script>
-	$('.countdown-timer').saleCountdown();
+  $('.countdown-timer').saleCountdown();
 </script>
 ```
 
