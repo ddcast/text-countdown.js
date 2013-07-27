@@ -1,6 +1,6 @@
 # sale-countdown.js
 
-Simple Countdown in Relative Time
+Simple jQuery Countdown Plugin in Relative Time
 
 ## Get Started
 Input date timezone is UTC. Output is localized.
