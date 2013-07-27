@@ -24,25 +24,32 @@
       var $element = this.$element = $(element),
           date = this._getUTCDate(), props, html;
 
-      props = this.date = this._getProps(date);
+      props = this.date = this._getDateProps(date);
 
-      html = '<div class="' + this.options.classPrefix + 'container" style="' + props.styleHours + '">' + 
-        '<span class="' + this.options.classPrefix + 'prefix">' + this.options.prefix + '</span>' +
-        '<span class="' + this.options.classPrefix + 'days" style="' + props.styleDays + '">' + props.days + ' day' + props.plurDays + '</span>' +
-        '<span class="' + this.options.classPrefix + 'delimiter" style="' + ( props.styleDays || props.styleRemainder ) + '">and</span> ' +
-        '<span class="' + this.options.classPrefix + 'remainder" style="' + props.styleRemainder + '">' + props.remainder + ' hour' + props.plurRemainder + '</span>' +
-        '<span class="' + this.options.classPrefix + 'suffix">' + this.options.suffix + '</span></div>';
+      if (props.hours > 0) {
+        html = '<div class="' + this.options.classPrefix + 'container">' + 
+          '<span class="' + this.options.classPrefix + 'prefix">' + this.options.prefix + '</span>' +
+          '<span class="' + this.options.classPrefix + 'days" style="' + props.styleDays + '">' +
+          '<span class="' + this.options.classPrefix + 'num">' + props.days + '</span> ' +
+          '<span class="' + this.options.classPrefix + 'label">day' + props.plurDays + '</span></span>' +
+          '<span class="' + this.options.classPrefix + 'delimiter" style="' + ( props.styleDays || props.styleRemainder ) + '">' + this.options.delimiter + '</span> ' +
+          '<span class="' + this.options.classPrefix + 'remainder" style="' + props.styleRemainder + '">' +
+          '<span class="' + this.options.classPrefix + 'num">' + props.remainder + '</span> ' +
+          '<span class="' + this.options.classPrefix + 'label">hour' + props.plurRemainder + '</span></span>' +
+          '<span class="' + this.options.classPrefix + 'suffix">' + this.options.suffix + '</span></div>';
 
-      $element.html(html);
+        $element.html(html);
+      }
+
+      return;
     },
-    _getProps: function (date) {
+    _getDateProps: function (date) {
       var props = {};
 
       props.hours = this._hoursUntil(date);
       props.days = props.hours && Math.floor(props.hours / 24);
       props.remainder = (props.hours > -1 || 0) && props.hours - (props.days * 24);
 
-      props.styleHours = props.hours < 1 && 'display: none;' || '';
       props.styleDays = props.days < 1 && 'display: none;' || '';
       props.styleRemainder = props.remainder < 1 && 'display: none;' || '';
 
@@ -103,6 +110,7 @@
     classPrefix: '',
     prefix: '',
     suffix: '',
+    delimiter: '',
     hour: 0,
     minute: 0,
     seconds: 0
