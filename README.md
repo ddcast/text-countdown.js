@@ -3,7 +3,7 @@
 Simple Countdown in Relative Time
 
 ## Get Started
-Input date timezone is UTC.
+Input date timezone is UTC. Output is localized.
 
 ```html
 <div class="countdown-timer"
