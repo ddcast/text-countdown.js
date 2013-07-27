@@ -21,22 +21,20 @@ Input date timezone is UTC. Output is localized.
 </script>
 ```
 
-
 Output looks something like:
 
 ```
 The sale starts in 6 days and 3 hours. Hooray!
 ```
 
-
 Yes, you can style the output to your heart's content.
 
 ```html
 <div class="sale-countdown-container">
-	<span class="sale-countdown-prefix">The sale starts in</span>
-	<span class="sale-countdown-days">6 days</span>
-	<span class="sale-countdown-delimiter">and</span>
-	<span class="sale-countdown-remainder">3 hours</span>
-	<span class="sale-countdown-suffix">. Hooray!</span>
+  <span class="sale-countdown-prefix">The sale starts in</span>
+  <span class="sale-countdown-days">6 days</span>
+  <span class="sale-countdown-delimiter">and</span>
+  <span class="sale-countdown-remainder">3 hours</span>
+  <span class="sale-countdown-suffix">. Hooray!</span>
 </div>
 ```
