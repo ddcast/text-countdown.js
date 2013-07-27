@@ -29,7 +29,7 @@ The sale starts in 6 days and 3 hours. Hooray!
 
 Yes, you can style the output to your heart's content.
 
-```
+```html
 <div class="sale-countdown-container">
 	<span class="sale-countdown-prefix">The sale starts in</span>
 	<span class="sale-countdown-days">6 days</span>
