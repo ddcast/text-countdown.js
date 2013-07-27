@@ -33,12 +33,12 @@ Yes, you can style the output to your heart's content.
 <div class="sale-countdown-container">
   <span class="sale-countdown-prefix">The sale starts in</span>
   <span class="sale-countdown-days">
-    <span class="sale-countdown-num">2</span>
+    <span class="sale-countdown-num">6</span>
     <span class="sale-countdown-label">days</span>
   </span>
   <span class="sale-countdown-delimiter">and</span>
   <span class="sale-countdown-remainder">
-    <span class="sale-countdown-num">13</span>
+    <span class="sale-countdown-num">3</span>
     <span class="sale-countdown-label">hours</span>
   </span>
   <span class="sale-countdown-suffix">. Hooray!</span>
