@@ -13,6 +13,7 @@ Input date timezone is UTC. Output is localized.
 	data-hour="17"
 	data-prefix="The sale starts in"
 	data-suffix=". Hooray!"
+	data-delimiter="and"
 ></div>
 
 <script>
