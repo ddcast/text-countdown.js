@@ -1,4 +1,4 @@
-# sale-countdown.js
+# text-countdown.js
 
 Simple jQuery Relative Time Countdown Plugin
 
@@ -30,19 +30,19 @@ The sale starts in about 6 days and 3 hours. Hooray!
 Yes, you can style the output to your heart's content.
 
 ```html
-<div class="sale-countdown-container">
-  <span class="sale-countdown-prefix">The sale starts in</span>
-  <span class="sale-countdown-about">about</span>
-  <span class="sale-countdown-days">
-    <span class="sale-countdown-num">6</span>
-    <span class="sale-countdown-label">days</span>
+<div class="text-countdown-container">
+  <span class="text-countdown-prefix">The sale starts in</span>
+  <span class="text-countdown-about">about</span>
+  <span class="text-countdown-days">
+    <span class="text-countdown-num">6</span>
+    <span class="text-countdown-label">days</span>
   </span>
-  <span class="sale-countdown-delimiter">and</span>
-  <span class="sale-countdown-remainder">
-    <span class="sale-countdown-lessthan">less than</span>
-    <span class="sale-countdown-num">3</span>
-    <span class="sale-countdown-label">hours</span>
+  <span class="text-countdown-delimiter">and</span>
+  <span class="text-countdown-remainder">
+    <span class="text-countdown-lessthan">less than</span>
+    <span class="text-countdown-num">3</span>
+    <span class="text-countdown-label">hours</span>
   </span>
-  <span class="sale-countdown-suffix">. Hooray!</span>
+  <span class="text-countdown-suffix">. Hooray!</span>
 </div>
 ```
