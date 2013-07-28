@@ -24,7 +24,7 @@ Input date timezone is UTC. Output is localized.
 Output looks something like:
 
 ```
-The sale starts in 6 days and 3 hours. Hooray!
+The sale starts in about 6 days and 3 hours. Hooray!
 ```
 
 Yes, you can style the output to your heart's content.
@@ -32,12 +32,14 @@ Yes, you can style the output to your heart's content.
 ```html
 <div class="sale-countdown-container">
   <span class="sale-countdown-prefix">The sale starts in</span>
+  <span class="sale-countdown-about">about</span>
   <span class="sale-countdown-days">
     <span class="sale-countdown-num">6</span>
     <span class="sale-countdown-label">days</span>
   </span>
   <span class="sale-countdown-delimiter">and</span>
   <span class="sale-countdown-remainder">
+    <span class="sale-countdown-lessthan">less than</span>
     <span class="sale-countdown-num">3</span>
     <span class="sale-countdown-label">hours</span>
   </span>

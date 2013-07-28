@@ -22,18 +22,20 @@
     constructor: SaleCountdown,
     init: function (type, element) {
       var $element = this.$element = $(element),
-          date = this._getUTCDate(), props, html;
+          date = this._getDate(), props, html;
 
       props = this.date = this._getDateProps(date);
 
       if (props.hours > 0) {
         html = '<div class="' + this.options.classPrefix + 'container">' + 
           '<span class="' + this.options.classPrefix + 'prefix">' + this.options.prefix + '</span>' +
+          '<span class="' + this.options.classPrefix + 'about" style="' + props.styleAbout + '">about</span> ' +
           '<span class="' + this.options.classPrefix + 'days" style="' + props.styleDays + '">' +
           '<span class="' + this.options.classPrefix + 'num">' + props.days + '</span> ' +
           '<span class="' + this.options.classPrefix + 'label">day' + props.plurDays + '</span></span>' +
           '<span class="' + this.options.classPrefix + 'delimiter" style="' + ( props.styleDays || props.styleRemainder ) + '">' + this.options.delimiter + '</span> ' +
           '<span class="' + this.options.classPrefix + 'remainder" style="' + props.styleRemainder + '">' +
+          '<span class="' + this.options.classPrefix + 'lessthan" style="' + props.styleLessthan + '">less than</span> ' +
           '<span class="' + this.options.classPrefix + 'num">' + props.remainder + '</span> ' +
           '<span class="' + this.options.classPrefix + 'label">hour' + props.plurRemainder + '</span></span>' +
           '<span class="' + this.options.classPrefix + 'suffix">' + this.options.suffix + '</span></div>';
@@ -46,10 +48,13 @@
     _getDateProps: function (date) {
       var props = {};
 
-      props.hours = this._hoursUntil(date);
+      props.until = this._until(date);
+      props.hours = Math.ceil(props.until / 3600000);
       props.days = props.hours && Math.floor(props.hours / 24);
       props.remainder = (props.hours > -1 || 0) && props.hours - (props.days * 24);
 
+      props.styleLessthan = props.until > 3600000 && 'display: none;' || '';
+      props.styleAbout = !props.styleLessthan && 'display: none;' || '';
       props.styleDays = props.days < 1 && 'display: none;' || '';
       props.styleRemainder = props.remainder < 1 && 'display: none;' || '';
 
@@ -63,7 +68,7 @@
 
       return;
     },
-    _getUTCDate: function () {
+    _getDate: function () {
       var dateStr = [this._pad(this.options.month), this._pad(this.options.day), this._pad(this.options.year)].join('/'),
           timeStr = [this._pad(this.options.hour), this._pad(this.options.minute), this._pad(this.options.second)].join(':'),
           date = [dateStr, timeStr, 'UTC'].join(' ');
@@ -81,11 +86,11 @@
 
       return (str + '').length < max && this._pad('0' + str, max) || str;
     },
-    _hoursUntil: function (date) {
+    _until: function (date) {
       var local = new Date(),
-          hours = Math.ceil((date.getTime() - local.getTime()) / 3600000);
+          until = date.getTime() - local.getTime();
 
-      return hours;
+      return until;
     }
   };
  
