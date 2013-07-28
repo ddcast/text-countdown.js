@@ -1,6 +1,6 @@
 /* ==========================================================
- * sale-countdown.js v1.0.0
- * https://github.com/ddcast/sale-countdown.js
+ * text-countdown.js v1.0.0
+ * https://github.com/ddcast/text-countdown.js
  * ==========================================================
  * Copyright 2013, Devin Castro
  * Plugin-style influenced by Twitter Bootstrap (Twitter, Inc.)
@@ -8,37 +8,26 @@
  * http://en.wikipedia.org/wiki/MIT_License
  * http://www.gnu.org/licenses/gpl-2.0.html
  * ========================================================== */
-
+ 
 (function ($) {
   "use strict";
 
-  function SaleCountdown (element, options) {
+  function TextCountdown (element, options) {
     this.options = options;
 
-    this.init('countdown', element, this.options);
+    this.init('textCountdown', element, this.options);
   }
 
-  SaleCountdown.prototype = {
-    constructor: SaleCountdown,
+  TextCountdown.prototype = {
+    constructor: TextCountdown,
     init: function (type, element) {
       var $element = this.$element = $(element),
-          date = this._getDate(), props, html;
+          date = this._getDate(), html;
 
-      props = this.date = this._getDateProps(date);
+      this.date = this._getDateProps(date);
 
-      if (props.hours > 0) {
-        html = '<div class="' + this.options.classPrefix + 'container">' + 
-          '<span class="' + this.options.classPrefix + 'prefix">' + this.options.prefix + '</span>' +
-          '<span class="' + this.options.classPrefix + 'about" style="' + props.styleAbout + '">about</span> ' +
-          '<span class="' + this.options.classPrefix + 'days" style="' + props.styleDays + '">' +
-          '<span class="' + this.options.classPrefix + 'num">' + props.days + '</span> ' +
-          '<span class="' + this.options.classPrefix + 'label">day' + props.plurDays + '</span></span>' +
-          '<span class="' + this.options.classPrefix + 'delimiter" style="' + ( props.styleDays || props.styleRemainder ) + '">' + this.options.delimiter + '</span> ' +
-          '<span class="' + this.options.classPrefix + 'remainder" style="' + props.styleRemainder + '">' +
-          '<span class="' + this.options.classPrefix + 'lessthan" style="' + props.styleLessthan + '">less than</span> ' +
-          '<span class="' + this.options.classPrefix + 'num">' + props.remainder + '</span> ' +
-          '<span class="' + this.options.classPrefix + 'label">hour' + props.plurRemainder + '</span></span>' +
-          '<span class="' + this.options.classPrefix + 'suffix">' + this.options.suffix + '</span></div>';
+      if (this.date.hours > 0) {
+        html = $.fn[type]._getHTML.apply(this);
 
         $element.html(html);
       }
@@ -64,7 +53,7 @@
       return props;
     },
     detach: function () {
-      this.data('saleCountdown', null);
+      this.data('textCountdown', null);
 
       return;
     },
@@ -82,8 +71,6 @@
       return date;
     },
     _pad: function (str, max) {
-      max = max || 2;
-
       return (str + '').length < max && this._pad('0' + str, max) || str;
     },
     _until: function (date) {
@@ -94,14 +81,14 @@
     }
   };
  
-  $.fn.saleCountdown = function (option) {
+  $.fn.textCountdown = function (option) {
     return this.each(function () {
       var $this = $(this),
-          data = $this.data('saleCountdown'),
-          options = $.extend({}, $.fn.saleCountdown.defaults, $this.data(), typeof option == 'object' && option);
-      options.classPrefix += 'sale-countdown-';
+          data = $this.data('textCountdown'),
+          options = $.extend({}, $.fn.textCountdown.defaults, $this.data(), typeof option == 'object' && option);
+      options.classPrefix += 'text-countdown-';
       if (!data) {
-        $this.data('saleCountdown', (data = new SaleCountdown(this, options)));
+        $this.data('textCountdown', (data = new TextCountdown(this, options)));
       } else {
         $.extend(data.options, options);
       }
@@ -111,7 +98,7 @@
     });
   };
 
-  $.fn.saleCountdown.defaults = {
+  $.fn.textCountdown.defaults = {
     classPrefix: '',
     prefix: '',
     suffix: '',
@@ -121,6 +108,28 @@
     seconds: 0
   };
 
-  $.fn.saleCountdown.Constructor = SaleCountdown;
+  $.fn.textCountdown.Constructor = TextCountdown;
+
+}(window.jQuery));
+
+(function ($) {
+  "use strict";
+
+  $.fn.textCountdown._getHTML = function () {
+    var html = '<div class="' + this.options.classPrefix + 'container">' + 
+      '<span class="' + this.options.classPrefix + 'prefix">' + this.options.prefix + '</span>' +
+      '<span class="' + this.options.classPrefix + 'about" style="' + this.date.styleAbout + '">about</span> ' +
+      '<span class="' + this.options.classPrefix + 'days" style="' + this.date.styleDays + '">' +
+      '<span class="' + this.options.classPrefix + 'num">' + this.date.days + '</span> ' +
+      '<span class="' + this.options.classPrefix + 'label">day' + this.date.plurDays + '</span></span>' +
+      '<span class="' + this.options.classPrefix + 'delimiter" style="' + ( this.date.styleDays || this.date.styleRemainder ) + '">' + this.options.delimiter + '</span> ' +
+      '<span class="' + this.options.classPrefix + 'remainder" style="' + this.date.styleRemainder + '">' +
+      '<span class="' + this.options.classPrefix + 'lessthan" style="' + this.date.styleLessthan + '">less than</span> ' +
+      '<span class="' + this.options.classPrefix + 'num">' + this.date.remainder + '</span> ' +
+      '<span class="' + this.options.classPrefix + 'label">hour' + this.date.plurRemainder + '</span></span>' +
+      '<span class="' + this.options.classPrefix + 'suffix">' + this.options.suffix + '</span></div>';
+
+    return html;
+  };
 
 }(window.jQuery));
