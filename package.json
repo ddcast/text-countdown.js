@@ -1,7 +1,7 @@
 {
   "author": "Devin Castro",
   "name": "text-countdown.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "languages": ["en-us"],
   "devDependencies": {
     "grunt": "~0.4.1",
