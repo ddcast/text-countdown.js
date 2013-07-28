@@ -2,6 +2,9 @@
 
 Simple jQuery Relative Time Countdown Plugin
 
+## Demo
+http://jsfiddle.net/ddcast/NQa9U/
+
 ## Get Started
 Input date timezone is UTC. Output is localized.
 

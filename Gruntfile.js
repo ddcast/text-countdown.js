@@ -3,8 +3,10 @@ module.exports = function( grunt ) {
       files = {}, uglyFiles = {}, jshFiles = { before: [], after: [] };
 
   pkg.languages.forEach(function (lang, index) {
-    files['js/text-countdown-' + lang + '.js'] = jshFiles.before = ['src/license.js', 'src/core.js', 'src/' + lang + '.js'];
-    uglyFiles['js/text-countdown-' + lang + '.min.js'] = jshFiles.after  = ['js/text-countdown-' + lang + '.js'];
+    var name = 'text-countdown-' + pkg.version + '-' + lang;
+
+    files['js/' + name + '.js'] = jshFiles.before = ['src/license.js', 'src/core.js', 'src/' + lang + '.js'];
+    uglyFiles['js/' + name + '.min.js'] = jshFiles.after  = ['js/' + name + '.js'];
   });
 
   grunt.initConfig({
