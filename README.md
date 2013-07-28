@@ -17,7 +17,7 @@ Input date timezone is UTC. Output is localized.
 ></div>
 
 <script>
-  $('.countdown-timer').saleCountdown();
+  $('.countdown-timer').textCountdown();
 </script>
 ```
 
