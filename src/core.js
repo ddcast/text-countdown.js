@@ -94,7 +94,7 @@
     delimiter: '',
     hour: 0,
     minute: 0,
-    seconds: 0
+    second: 0
   };
 
   $.fn.textCountdown.Constructor = TextCountdown;
